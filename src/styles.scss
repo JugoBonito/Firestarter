@@ -1,1 +1,109 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-blue: (
+  50 : #e2e7e8,
+  100 : #b6c2c5,
+  200 : #869a9e,
+  300 : #557177,
+  400 : #30525a,
+  500 : #0c343d,
+  600 : #0a2f37,
+  700 : #08272f,
+  800 : #062127,
+  900 : #03151a,
+  A100 : #58cfff,
+  A200 : #25c1ff,
+  A400 : #00acf1,
+  A700 : #009ad8,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+$md-light: (
+  50 : #f3f8fc,
+  100 : #e2eef8,
+  200 : #cfe2f4,
+  300 : #bcd6ef,
+  400 : #adceeb,
+  500 : #9fc5e8,
+  600 : #97bfe5,
+  700 : #8db8e2,
+  800 : #83b0de,
+  900 : #72a3d8,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #eef6ff,
+  A700 : #d4e9ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Firestarter-primary: mat.define-palette($md-blue);
+$Firestarter-accent: mat.define-palette($md-light, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$Firestarter-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Firestarter-theme: mat.define-dark-theme((
+  color: (
+    primary: $Firestarter-primary,
+    accent: $Firestarter-accent,
+    warn: $Firestarter-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Firestarter-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
