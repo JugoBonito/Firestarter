@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-kanban-56fc3": {
+      "hosting": {
+        "Firestarter": [
+          "angular-kanban-56fc3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-kanban-56fc3"
+  }
+}
